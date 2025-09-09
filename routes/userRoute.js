@@ -16,13 +16,14 @@ import {
   updateUserPassword,
   userResetPassword,
 } from "../controllers/userController.js";
+import { isAuthenticatedUser } from "../middlewares/adminAuth.js";
 
 const router = express.Router();
 
 router.route("/createuser").post(createUser);
 router.route("/login").post(loginUser);
 router.route("/logout").post(logoutUser);
-router.route("/getalluser").get(getAllUsers);
+router.route("/getalluser").get(isAuthenticatedUser,getAllUsers);
 router.route("/getuserbyid/:id").get(getUserById);
 router.route("/updateuser/:id").put(updateUser);
 

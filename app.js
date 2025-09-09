@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import fileupload from "express-fileupload";
 import user from "./routes/userRoute.js";
 
@@ -7,6 +8,7 @@ const app = express();
 // parse json and urlencoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use(express.static("public"));
 app.use(
