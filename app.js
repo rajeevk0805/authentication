@@ -2,6 +2,8 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import fileupload from "express-fileupload";
 import user from "./routes/userRoute.js";
+import center from "./routes/centerRoute.js";
+import appointmentroute from "./routes/appointmentRoute.js";
 
 const app = express();
 
@@ -25,4 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", user);
+app.use("/api/center", center);
+app.use("/api/appointment", appointmentroute);
+
 export default app;
